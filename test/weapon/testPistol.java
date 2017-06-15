@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import gameplay.SimpleTimer;
 
-public class testPistol
+public class TestPistol
 {
 
 	@Test

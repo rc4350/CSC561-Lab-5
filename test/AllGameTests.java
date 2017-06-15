@@ -9,6 +9,13 @@ import lifeform.TestHuman;
 import lifeform.TestLifeForm;
 import recovery.TestRecoveryFractional;
 import recovery.TestRecoveryNone;
+import weapon.TestAttachment;
+import weapon.TestAttachmentWrap;
+import weapon.TestGenericWeapon;
+import weapon.TestPistol;
+import weapon.TestPlasmaCannon;
+import weapon.TestScope;
+import weapon.TestStabilizer;
 import recovery.TestRecoveryLinear;
 
 /**
@@ -27,7 +34,14 @@ import recovery.TestRecoveryLinear;
 	TestRecoveryLinear.class,
 	TestRecoveryNone.class,
 	TestAlien.class,
-	TestSimpleTimer.class
+	TestSimpleTimer.class,
+	TestAttachment.class,
+	TestAttachmentWrap.class,
+	TestGenericWeapon.class,
+	TestPistol.class,
+	TestPlasmaCannon.class,
+	TestScope.class,
+	TestStabilizer.class
 })
 
 public class AllGameTests {
