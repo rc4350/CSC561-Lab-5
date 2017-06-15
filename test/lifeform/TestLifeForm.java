@@ -9,11 +9,91 @@ import weapon.Pistol;
 
 /**
  *  Test LifeForm class
- * @author Ryan Campbell
+ * @author Ryan Campbell, Deema Alrashdan
  *
  */
 
-public class TestLifeForm {
+public class TestLifeForm 
+{
+	//Lab 5 Test
+	
+	@Test
+	public void testSetLocation()
+	{
+		MockLifeForm mf = new MockLifeForm("Bob", 40, 10);
+		mf.setLocation(0,0);
+		int testlocation[] = new int[2];
+		testlocation[0] = 0;
+		testlocation[1] = 0;
+		
+		for(int i = 0; i<2; i++)
+		{
+			assertEquals(testlocation[i], mf.location[i]);
+		}
+	}
+	
+	@Test
+	public void testGetLocation()
+	{
+		MockLifeForm mf = new MockLifeForm("Bob", 40, 10);
+		mf.setLocation(0,0);
+		int testlocation[] = new int[2];
+		testlocation[0] = 0;
+		testlocation[1] = 0;
+		
+		int lfLocation[] = mf.getLocation();
+		
+		for(int i = 0; i<2; i++)
+		{
+			assertEquals(testlocation[i], lfLocation[i]);
+		}
+	}
+	
+	@Test
+	public void testDistanceRightAngle()
+	{
+		MockLifeForm mf1 = new MockLifeForm("Bob", 40, 10);
+		MockLifeForm mf2 = new MockLifeForm("Joe", 40, 10);
+		
+		//checking same column
+		mf1.setLocation(0,0);
+		mf2.setLocation(0,1);
+		assertEquals(5, mf1.getDistance(mf2));
+		
+		mf1.setLocation(0, 1);
+		mf2.setLocation(0, 0);
+		assertEquals(5, mf1.getDistance(mf2));
+		
+		//checking same row
+		mf1.setLocation(1, 1);
+		mf2.setLocation(3, 1);
+		assertEquals(10, mf1.getDistance(mf2));
+		
+		mf1.setLocation(5, 1);
+		mf2.setLocation(3, 1);
+		assertEquals(10, mf1.getDistance(mf2));
+		
+	}
+	
+	@Test
+	public void testDistanceDiagonal()
+	{
+		MockLifeForm mf1 = new MockLifeForm("Bob", 40, 10);
+		MockLifeForm mf2 = new MockLifeForm("Joe", 40, 10);
+		
+		mf1.setLocation(0,0);
+		mf2.setLocation(2,3);
+		assertEquals(18, mf1.getDistance(mf2));
+		
+		mf1.setLocation(2,3);
+		mf2.setLocation(0,0);
+		assertEquals(18, mf1.getDistance(mf2));
+		
+	}
+	
+	
+	//Lab 4 tests
+	
 	/**
 	 * testPickup
 	 * can pickup a weapon

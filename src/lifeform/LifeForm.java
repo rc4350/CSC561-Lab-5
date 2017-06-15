@@ -20,6 +20,34 @@ public class LifeForm implements TimeObserver
 	protected Timer tracker;
 	protected int round;
     protected Weapon baseWeapon;
+    protected int location[];
+	
+	
+	
+	/**
+	 * create an instance
+	 * 
+	 * @param name the name of the life form
+	 * @param points the current starting life points of the life form
+	 * @param ap 
+	 */
+	public LifeForm(String name, int hp) 
+	{
+		// TODO Auto-generated constructor stub
+		myName = name;
+		currentLifePoints = hp;
+		if(currentLifePoints < 0)
+		{
+			currentLifePoints = 0;
+		}
+		location = new int[2];
+	}
+	public LifeForm(String name, int hp, int ap)
+	{
+		this(name, hp);
+		attackPoints = ap;
+	}
+	
 	
 	/**
 	 * pickUpWeapon
@@ -43,28 +71,7 @@ public class LifeForm implements TimeObserver
 		baseWeapon = null;
 	}
 	
-	/**
-	 * create an instance
-	 * 
-	 * @param name the name of the life form
-	 * @param points the current starting life points of the life form
-	 * @param ap 
-	 */
-	public LifeForm(String name, int hp) 
-	{
-		// TODO Auto-generated constructor stub
-		myName = name;
-		currentLifePoints = hp;
-		if(currentLifePoints < 0)
-		{
-			currentLifePoints = 0;
-		}
-	}
-	public LifeForm(String name, int hp, int ap)
-	{
-		this(name, hp);
-		attackPoints = ap;
-	}
+	
 	/**
 	 * 
 	 * @return the name of the life form.
@@ -139,6 +146,56 @@ public class LifeForm implements TimeObserver
 	public void updateTime(int time)
 	{
 		round = tracker.getRound();
+		
+	}
+	/**
+	 * set's the location of lifeForm in the environment
+	 * @param row row lifeform is in
+	 * @param column column lifeform is in
+	 */
+	public void setLocation(int row, int column)
+	{
+		location[0] = row;
+		location[1] = column;
+	}
+	/**
+	 * get's lifeForms location
+	 * @return returns location 
+	 */
+	public int[] getLocation()
+	{
+		return location;
+	}
+	/**
+	 * calculates distance between current lifeform and another
+	 * @param target Lifeform
+	 * @return returns distance between location and target location
+	 */
+	public int getDistance(LifeForm target)
+	{
+		int targetLocation[];
+		targetLocation = target.getLocation();
+		if(targetLocation[0] == location[0])
+		{
+			int distance = (targetLocation[1] - location[1])*5;
+			distance = Math.abs(distance);
+			return distance;
+		}
+		else if (targetLocation[1] == location[1])
+		{
+			int distance = (targetLocation[0] - location[0])*5;
+			distance = Math.abs(distance);
+			return distance;
+		}
+		else
+		{
+			int x, y, distance;
+			x =Math.abs((targetLocation[0] - location[0])*5);
+			y =Math.abs((targetLocation[1] - location[1])*5);
+			distance = (int) Math.sqrt((x*x)+(y*y));
+			return distance;
+			
+		}
 		
 	}
 }

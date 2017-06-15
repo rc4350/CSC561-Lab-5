@@ -1,6 +1,7 @@
 package environment;
 
 import lifeform.LifeForm;
+import weapon.Weapon;
 
 /**
  * holds a LifeForm
@@ -9,6 +10,9 @@ import lifeform.LifeForm;
  */
 public class Cell {
 	private LifeForm myLifeForm;
+	private Weapon weaponOne;
+	private Weapon weaponTwo;
+	
 	public Cell()
 	{
 		myLifeForm = null;
@@ -49,5 +53,57 @@ public boolean removeLifeForm()
 	else
 	return false;
 }
+	public boolean addWeapon(Weapon wpn)
+	{
+		if(weaponOne == null)
+		{
+			weaponOne = wpn;
+			return true;
+		}
+		else if (weaponTwo == null)
+		{
+			weaponTwo = wpn;
+			return true;
+		}
+		else
+			return false;
+	}
+	/**
+	 * returns values of weaponOne
+	 * @return weaponOne
+	 */
+	public Weapon getWeaponOne()
+	{
+		return weaponOne;
+	}
+	/**
+	 * returns value of weaponTwo
+	 * @return weaponTwo
+	 */
+	public Weapon getWeaponTwo()
+	{
+		return weaponTwo;
+	}
+	
+	/**
+	 * removes a weapon if it exists in the cell
+	 * @param wpn weapon to remove
+	 * @return true is weapon was removed, if weapon was not in cell returns false
+	 */
+	public boolean removeWeapon(Weapon wpn)
+	{
+		if(weaponOne == wpn)
+		{
+			weaponOne = null;
+			return true;
+		}
+		else if(weaponTwo == wpn)
+		{
+			weaponTwo = null;
+			return true;
+		}
+		else
+			return false;
+	}
 
 }
