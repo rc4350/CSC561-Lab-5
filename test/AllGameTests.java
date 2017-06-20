@@ -12,7 +12,7 @@ import recovery.TestRecoveryNone;
 import weapon.TestAttachment;
 import weapon.TestAttachmentWrap;
 import weapon.TestGenericWeapon;
-import weapon.TestPistol;
+import weapon.TestPisto;
 import weapon.TestPlasmaCannon;
 import weapon.TestScope;
 import weapon.TestStabilizer;
@@ -38,7 +38,7 @@ import recovery.TestRecoveryLinear;
 	TestAttachment.class,
 	TestAttachmentWrap.class,
 	TestGenericWeapon.class,
-	TestPistol.class,
+	TestPisto.class,
 	TestPlasmaCannon.class,
 	TestScope.class,
 	TestStabilizer.class
